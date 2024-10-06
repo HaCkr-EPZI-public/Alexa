@@ -18,11 +18,11 @@ let desc = `
 │❖ *ᴜᴘᴛɪᴍᴇ :* _${runtime(process.uptime())}_
 │❖ *ʀᴀᴍ ᴜꜱᴀɢᴇ :*  _${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB_
 │❖ *ʜᴏꜱᴛ ɴᴀᴍᴇ :* _${os.hostname()}_
-│❖ *ᴏᴡɴᴇʀ :* _Sadeesha Tharumin_
+│❖ *ᴏᴡɴᴇʀ :* _Asᴍᴏᴅᴇᴜs Eᴘᴢɪ_
 └────────────────
-Ａｌｅｘａ Ｗｈａｔｓａｐｐ Ｂｏｔ👸🏻
+*Epzige Cudu Nona is Here*👸🏻
 ┌────────────
-❖ *📚ALEXA ALL COMMANDS📚*└────────────
+❖ *📚ALL COMMANDS📚*└────────────
 ┌────────────
 ❖ *📥DOWNLOAD COMMANDS📥*
 │
@@ -97,9 +97,9 @@ let desc = `
 │ ✑ _.src_
 └────────────
 
-> *©ᴄʀᴇᴀᴛᴇᴅ ʙʏ ꜱᴀᴅᴇᴇꜱʜᴀ ᴄᴏᴅᴇʀ 🧑🏻‍💻*
+> *©ᴄʀᴇᴀᴛᴇᴅ ʙʏ Asᴍᴏᴅᴇᴜs Eᴘᴢɪ 🧑🏻‍💻*
 `
-return await conn.sendMessage(from,{image: {url: `https://i.ibb.co/wR8GBT2/20241002-093136.jpg`},caption: desc},{quoted: mek})
+return await conn.sendMessage(from,{image: {url: `https://i.ibb.co/tZzBS47/image.jpg`},caption: desc},{quoted: mek})
 }catch(e){
 console.log(e)
 reply(`${e}`)
