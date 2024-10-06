@@ -20,27 +20,28 @@ let desc = `
 │❖ *ᴜᴘᴛɪᴍᴇ :* _${runtime(process.uptime())}_
 │❖ *ʀᴀᴍ ᴜꜱᴀɢᴇ :*  _${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB_
 │❖ *ʜᴏꜱᴛ ɴᴀᴍᴇ :* _${os.hostname()}_
-│❖ *ᴏᴡɴᴇʀ :* _Sadeesha Tharumin_
+│❖ *ᴏᴡɴᴇʀ :* _Asᴍᴏᴅᴇᴜs Eᴘᴢɪ_
 └────────────────
 
-*I'm Alive Now 👸🏻*
+*Oyage Cudu nona Innawa patiyo👸🏻*
 
 ┌────────────────
-│ _*Alexa Official Web Site*_
-│ https://sadiyamin.github.io/|||Test
+│ _*Epzi'ge Cudu Nona's Official Web Site*_
+│ Thama ehema ekk nh issarahata hadannm
 └────────────────
 ┌────────────────
-│ _*Alexa Github Repo*_
-│ http://github.com/sadiyamin/Alexa 
+│ _*Cudu Nonage Github Repo eka*_
+│ Den nh palayan 
 └────────────────
 ┌────────────────
-│ _*Alexa Public Group*_
-│ https://chat.whatsapp.com/Ci5mDk9zEVF95NcuqEtzl4
+│ _*Apilage Group eka*_
+│ https://chat.whatsapp.com/FUYcvrXn9zm6BHbFznMSpn
 └────────────────
 
-> *©ᴄʀᴇᴀᴛᴇᴅ ʙʏ ꜱᴀᴅᴇᴇꜱʜᴀ ᴄᴏᴅᴇʀ  🧑🏻‍💻*
+> *©ᴄʀᴇᴀᴛᴇᴅ ʙʏ Asᴍᴏᴅᴇᴜs Eᴘᴢɪ  🧑🏻‍💻*
+> Master Piece is Alexa by Sadeesha
 `
-return await conn.sendMessage(from,{image: {url: `https://i.ibb.co/Rgj7Y6Y/20241002-093501.jpg`},caption: desc},{quoted: mek})
+return await conn.sendMessage(from,{image: {url: `https://i.ibb.co/tZzBS47/image.jpg`},caption: desc},{quoted: mek})
 
 }catch(e){
 console.log(e)
