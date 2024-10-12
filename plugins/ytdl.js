@@ -1,4 +1,4 @@
-// Alexa Whatsapp Bot....Created By Sadeesha
+// Alexa Whatsapp Bot....Created By Asᴍᴏᴅᴇᴜs Eᴘᴢɪ
 // Don't Edit This Fill
 
 const {cmd , commands} = require('../command')
@@ -108,7 +108,7 @@ let downloadUrl = down.dl_url
 
 //________________________________Send-Video_____________________________________________
 
-await conn.sendMessage(from,{video: {url:downloadUrl},mimetype:"video/mp4",caption:"*©ᴄʀᴇᴀᴛᴇᴅ ʙʏ ꜱᴀᴅᴇᴇꜱʜᴀ ᴄᴏᴅᴇʀ..🧑🏻‍💻*"},{quoted:mek})
+await conn.sendMessage(from,{video: {url:downloadUrl},mimetype:"video/mp4",caption:"*©ᴄʀᴇᴀᴛᴇᴅ ʙʏ Asᴍᴏᴅᴇᴜs Eᴘᴢɪ..🧑🏻‍💻*"},{quoted:mek})
 
 
 }catch(e){
@@ -116,4 +116,140 @@ await conn.sendMessage(from,{video: {url:downloadUrl},mimetype:"video/mp4",capti
     reply(`${e}`)
 }
 }
+)
+cmd(
+  {
+    pattern: 'play',
+    alias: ['music'],
+    react: '🎧',
+    desc: 'Search and get details from YouTube.',
+    category: 'download',
+    filename: __filename,
+  },
+  async (
+    client,
+    message,
+    chat,
+    {
+      from,
+      body,
+      quoted,
+      isCmd,
+      sender,
+      args,
+      searchQuery,
+      isGroup,
+      senderNumber,
+      botNumber2,
+      botNumber,
+      pushname,
+      isMe,
+      isOwner,
+      groupMetadata,
+      groupName,
+      participants,
+      groupAdmins,
+      isBotAdmins,
+      isAdmins,
+      reply,
+    }
+  ) => {
+    try {
+      if (!searchQuery) {
+        return reply('*Please provide search terms*')
+      }
+      const searchResult = await yts(searchQuery),
+        video = searchResult.videos[0],
+        videoUrl = video.url
+      let audioData = await fg.yta(videoUrl),
+        downloadUrl = audioData.dl_url
+      reply('*🎸 Downloading... 🎸*\n> Asᴍᴏᴅᴇᴜs Eᴘᴢɪ')
+      let response = await client.sendMessage(
+        from,
+        {
+          document: { url: downloadUrl },
+          mimetype: 'audio/mpeg',
+          fileName: video.title + '.mp3',
+          caption: 'Created by Asᴍᴏᴅᴇᴜs Eᴘᴢɪ 👩🏻‍💻',
+        },
+        { quoted: message }
+      )
+      await client.sendMessage(from, {
+        react: {
+          text: '✅',
+          key: response.key,
+        },
+      })
+    } catch (error) {
+      console.log(error)
+      reply('' + error)
+    }
+  }
+)
+
+cmd(
+  {
+    pattern: 'yta',
+    alias: ['ytmp3'],
+    react: '🎧',
+    desc: 'Download YouTube videos as audio.',
+    category: 'download',
+    filename: __filename,
+  },
+  async (
+    client,
+    message,
+    chat,
+    {
+      from,
+      body,
+      quoted,
+      isCmd,
+      sender,
+      args,
+      searchQuery,
+      isGroup,
+      senderNumber,
+      botNumber2,
+      botNumber,
+      pushname,
+      isMe,
+      isOwner,
+      groupMetadata,
+      groupName,
+      participants,
+      groupAdmins,
+      isBotAdmins,
+      isAdmins,
+      reply,
+    }
+  ) => {
+    try {
+      if (!searchQuery) {
+        return reply('*Please provide search terms*')
+      }
+      let audioData = await fg.yta(searchQuery),
+        downloadUrl = audioData.dl_url
+      reply('*🎸 Downloading... 🎸*\n> Asᴍᴏᴅᴇᴜs Eᴘᴢɪ')
+      let response = await client.sendMessage(
+        from,
+        {
+          document: { url: downloadUrl },
+          mimetype: 'audio/mpeg',
+          fileName: data.title + '.mp3',
+          caption: 'Created by Asᴍᴏᴅᴇᴜs Eᴘᴢɪ 👩🏻‍💻',
+        },
+        { quoted: message }
+      )
+      await client.sendMessage(from, {
+        react: {
+          text: '✅',
+          key: response.key,
+        },
+      })
+    } catch (error) {
+      console.log(error)
+      reply('' + error)
+    }
+  }
 )
