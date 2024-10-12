@@ -1,5 +1,5 @@
-const { cmd, commands } = require('../lib/command');
-const config = require('../settings');
+const { cmd, commands } = require('../command');
+const config = require('../config');
 const {
   getBuffer,
   getGroupAdmins,
