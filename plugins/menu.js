@@ -27,6 +27,8 @@ let desc = `
 ❖ *📥DOWNLOAD COMMANDS📥*
 │
 │ ✑ _.song_
+│ ✑ _.play_
+│ ✑ _.yta_
 │ ✑ _.video_
 │ ✑ _.fb_
 │ ✑ _.facebook_
