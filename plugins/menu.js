@@ -1,110 +1,120 @@
-const { readEnv } = require('../lib/database'),
-  { cmd, commands } = require('../command'),
-  os = require('os'),
-  { runtime } = require('../lib/functions')
+const {cmd , commands} = require('../command')
+const os = require("os")
+const {runtime} = require('../lib/functions')
 
-cmd(
-  {
-    pattern: 'menu',
-    desc: 'To get the menu.',
-    react: '😊',
-    category: 'main',
-    filename: __filename,
-  },
-  async (
-    message,
-    chat,
-    args,
-    {
-      from,
-      quoted,
-      body,
-      isCmd,
-      command,
-      args: commandArgs,
-      q,
-      isGroup,
-      sender,
-      senderNumber,
-      botNumber2,
-      botNumber,
-      pushname,
-      isMe,
-      isOwner,
-      groupMetadata,
-      groupName,
-      participants,
-      groupAdmins,
-      isBotAdmins,
-      isAdmins,
-      reply,
-    }
-  ) => {
-    try {
-      const envConfig = await readEnv();
-      const commandCategories = {
-        main: '',
-        download: '',
-        fun: '',
-        group: '',
-        owner: '',
-        search: '',
-        other: '',
-      };
+cmd({
+    pattern: "menu",
+    desc: "menu",
+    category: "main",
+    react: "📚",
+    filename: __filename
+},
+async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+try{
 
-      for (let i = 0; i < commands.length; i++) {
-        if (commands[i].pattern && !commands[i].dontAddCommandList) {
-          commandCategories[commands[i].category] +=
-            '⚠️' + envConfig.PREFIX + commands[i].pattern + '\n';
-        }
-      }
+let desc = `
+*🌸 Hi* ${pushname}
+┌────────────────
+│❖ *ᴜᴘᴛɪᴍᴇ :* _${runtime(process.uptime())}_
+│❖ *ʀᴀᴍ ᴜꜱᴀɢᴇ :*  _${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB_
+│❖ *ʜᴏꜱᴛ ɴᴀᴍᴇ :* _${os.hostname()}_
+│❖ *ᴏᴡɴᴇʀ :* _Asᴍᴏᴅᴇᴜs Eᴘᴢɪ_
+└────────────────
+*Epzige Cudu Nona is Here*👸🏻
+┌────────────
+❖ *📚ALL COMMANDS📚*└────────────
+┌────────────
+❖ *📥DOWNLOAD COMMANDS📥*
+│
+│ ✑ _.song_
+│ ✑ _.video_
+│ ✑ _.fb_
+│ ✑ _.facebook_
+│ ✑ _.tt_
+│ ✑ _.tiktok_
+│ ✑ _.ig_
+│ ✑ _.twdl_
+│ ✑ _.twitter_
+│ ✑ _.gdrive_
+│ ✑ _.apk_
+│ ✑ _.mediafire_
+└────────────
+┌────────────
+❖ *🔎SEARCH COMMANDS🔎*
+│
+│ ✑ _.img_
+│ ✑ _.pinterest_
+└────────────
+┌────────────
+❖ *🧚🏻ANIME  COMMANDS🧚🏻*
+│
+│ ✑ _.loli_
+│ ✑ _.waifu_
+│ ✑ _.neko_
+│ ✑ _.megumin_
+│ ✑ _.maid_
+│ ✑ _.awoo_
+└────────────
+┌────────────
+❖ *🎊CONVERTED COMMANDS🎊*
+│
+│ ✑ _.sticker_
+│ ✑ _.tts_
+└────────────
+┌────────────
+❖ *👸🏻AI COMMANDS👸🏻*
+│
+│ ✑ _.ai_
+│ ✑ _.cgpt_
+└────────────
+┌────────────
+❖ *🧧MAIN COMMANDS🧧*
+│
+│ ✑ _.restart_
+│ ✑ _.owner_
+│ ✑ _.ping_
+│ ✑ _.system_
+│ ✑ _.src_
+└────────────
+┌────────────
+❖ *🧧NEW & TESTING COMMANDS🧧*
+│
+│ ✑ _.githubstalk_
+│ ✑ _.gpass_
+│ ✑ _.hack_
+│ ✑ _.dog_
+│ ✑ _.joke_
+│ ✑ _.fact_
+│ ✑ _.animegirl_
+│ ✑ _.define_
+└────────────
+┌────────────
+❖ *🎯GROUP COMMANDS🎯*
+│
+│ ✑ _.promote_
+│ ✑ _.demote_
+│ ✑ _.remove_
+│ ✑ _.kick_
+│ ✑ _.setwelcome_
+│ ✑ _.setgoodbye_
+│ ✑ _.getpic_
+└────────────
+┌────────────
+❖ *👤OWNER COMMANDS👤️*
+│
+│ ✑ _.block_
+│ ✑ _.unblock_
+│ ✑ _.jid_
+│ ✑ _.gjid_
+│ ✑ _.clearchats_
+│ ✑ _.restart_
+└────────────
 
-      let menuMessage = `
-🌟👑 Welcome to _Asmodeus AI_ 👑🌟
-
-      👋 Hello, ${pushname}! 
-
-✨ Here's the menu! ✨ 
-
-🕒 Bot Uptime: ${runtime(process.uptime())}  
-👤 Bot Number: ${envConfig.BOT_NUMBER}  
-💻 Memory Usage: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(
-        require('os').totalmem() / 1024 / 1024
-      )}MB  
-
-📥 Download Commands: 
-${commandCategories.download}
-
-🎉 Fun Commands: 
-${commandCategories.fun}
-
-👥 Group Commands: 
-${commandCategories.group}
-
-🔒 Owner Commands: 
-${commandCategories.owner}
-
-🔍 Search Commands: 
-${commandCategories.search}
-
-⚙️ Other Commands: 
-${commandCategories.other}
-
-© Epzi_Official - MD 
-💻 GitHub: github.com/HaCkr-EPZI-public/CuduNona
-`;
-
-      return await message.sendMessage(
-        from,
-        {
-          image: { url: envConfig.ALIVE_IMG },
-          caption: menuMessage,
-        },
-        { quoted: chat }
-      );
-    } catch (error) {
-      console.log(error);
-      reply('' + error);
-    }
-  }
-);
+> *©ᴄʀᴇᴀᴛᴇᴅ ʙʏ Asᴍᴏᴅᴇᴜs Eᴘᴢɪ 🧑🏻‍💻*
+`
+return await conn.sendMessage(from,{image: {url: `https://i.ibb.co/tZzBS47/image.jpg`},caption: desc},{quoted: mek})
+}catch(e){
+console.log(e)
+reply(`${e}`)
+}
+})
