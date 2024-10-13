@@ -22,28 +22,6 @@ async (conn, mek, m, { from, body, isOwner }) => {
 });
 
 //auto nsfw
-
-cmd(
-  { on: 'body' },
-  async (messageHandler, message, originalMessage, { from: sender, body: messageBody, isOwner }) => {
-    const pussyFilePath = path.join(__dirname, '../media/pussy.json');
-    const pussyData = JSON.parse(fs.readFileSync(pussyFilePath, 'utf8'));
-
-    for (const key in pussyData) {
-      if (messageBody.toLowerCase() === key.toLowerCase() && config.AUTO_VOICE === 'true') {
-        await messageHandler.sendMessage(
-          sender,
-          {
-            image: { url: pussyData[key] },
-            caption: '> Created By Asmodeus Epzi',
-          },
-          { quoted: originalMessage }
-        );
-      }
-    }
-  }
-);
-
 //auto sticker 
 cmd({
   on: "body"
