@@ -21,6 +21,24 @@ async (conn, mek, m, { from, body, isOwner }) => {
     }                
 });
 
+//auto nsfw
+cmd({
+  on: "body"
+},    
+async (conn, mek, m, { from, body, isOwner }) => {
+    const filePath = path.join(__dirname, '../media/pussy.json');
+    const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    for (const text in data) {
+        if (body.toLowerCase() === text.toLowerCase()) {
+            if (config.AUTO_REPLY === 'true') {
+                //if (isOwner) return;        
+                await conn.sendPresenceUpdate('composing', from);
+                await conn.sendMessage(from, { image: { url: data[text] }, caption: "Here's your image!" }, { quoted: mek });
+            }
+        }
+    }                
+});
+
 //auto sticker 
 cmd({
   on: "body"
