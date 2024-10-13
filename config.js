@@ -11,6 +11,6 @@ MODE: process.env.MODE || "private",
 AUTO_VOICE: process.env.AUTO_VOICE || "true",
 AUTO_STICKER: process.env.AUTO_STICKER || "false",
 AUTO_REPLY: process.env.AUTO_REPLY || "true",
-MONGODB: process.env.MONGODB || "url",
+MONGODB: process.env.MONGODB || "mongodb+srv://epzi:e1IX5RIPcfb0aT2t@epzi0.taajc.mongodb.net/",
 OMDB_API_KEY: process.env.OMDB_API_KEY || "a8f3fe20",    
 };
