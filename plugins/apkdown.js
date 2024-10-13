@@ -1,4 +1,4 @@
-import { search, download } from 'aptoide-scraper';
+const { search, download } = require('aptoide-scraper');
 import pkg, { prepareWAMessageMedia } from '@whiskeysockets/baileys';
 const { generateWAMessageFromContent, proto } = pkg;
 
