@@ -1,5 +1,6 @@
 const { search, download } = require('aptoide-scraper');
-import pkg, { prepareWAMessageMedia } from '@whiskeysockets/baileys';
+const pkg = require('@whiskeysockets/baileys');
+const { prepareWAMessageMedia } = pkg;
 const { generateWAMessageFromContent, proto } = pkg;
 
 const apkMap = new Map();
