@@ -27,6 +27,9 @@
     "api-dylux": "1.8.5",
     "google-tts-api":"2.0.2",
     "wa-sticker-formatter":"4.4.4",
+    "imagemaker.js": "^2.0.4",
+    "@blackamda/telegram-image-url":"1.0.0",
+    "mongoose": "8.5.4",
     "ruhend-scraper":"7.0.6"
   }
 }
