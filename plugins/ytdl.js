@@ -7,7 +7,7 @@ const {
   toAudio,
   getJson,
   validateQuality,
-} = require("../../lib");
+} = require("../lib");
 const { yta, ytv, ytsdl } = require("../lib/ytdl");
 
 command(
