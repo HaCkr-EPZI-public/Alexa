@@ -8,7 +8,7 @@ const {
   getJson,
   validateQuality,
 } = require("../../lib");
-const { yta, ytv, ytsdl } = require("../../lib/ytdl");
+const { yta, ytv, ytsdl } = require("../lib/ytdl");
 
 command(
   {
