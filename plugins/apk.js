@@ -1,24 +1,23 @@
 const config = require('../config')
-const {cmd , commands} = require('../command')
-const { fetchJson } = require('../lib/functions')
-
+const { cmd, commands } = require('../command')
 cmd({
-    pattern: "apkdl",
-    alias: ["modapk"],
+    pattern: "apk2",
+    alias: ["app"],
     desc: "download apks",
     category: "download",
-    filename: __filename,
-    react: "📂"
+    react: "⚡",
+    filename: __filename
 },
 async(conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
     try {
-        if (!q && !q.startsWith("https://")) return reply("❗αρк ησт ƒσυη∂,ѕσяяу")
-        //fetch data from api  
-        let data = await fetchJson(`${baseUrl}/api/apkdl?url=${q}`)
-        reply("*Hansamal DOWNLOADING...*")
+        if (!q && !q.startsWith("https://")) return reply("❗Apk Not Found,Sorry")
+        //fetch data from api          
+        let baseUrl = 'your_base_url'; // Define baseUrl here
+        let data = await fetchJson(`${baseUrl}/api/apkdl?url=${q}`); // Correct template literal
+        reply("plase waite...")
         await conn.sendMessage(from, { document: { url: data.data.link_1 }, fileName: data.data.name, mimetype: data.data.file_type, caption: cap }, { quoted: mek })                                                                                                                 
-    } catch (e) {
+         }catch(e){
         console.log(e)
-        reply(`*Cant Find ⚠️*`)
-    }
-})
+        reply(`${e}`)
+        }
+        })
