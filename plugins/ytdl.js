@@ -7,8 +7,9 @@ const {
   toAudio,
   getJson,
   validateQuality,
-} = require("../lib");
+} = require("../lib/functions");
 const { yta, ytv, ytsdl } = require("../lib/ytdl");
+const {cmd , command} = require('../command');
 
 command(
   {
