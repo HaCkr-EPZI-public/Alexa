@@ -1,5 +1,4 @@
 const {
-  command,
   isPrivate,
   isUrl,
   AddMp3Meta,
